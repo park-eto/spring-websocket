@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.session:spring-session')
+	compile('org.springframework.boot:spring-boot-starter-websocket')
+	compile("org.webjars:webjars-locator")
+	compile("org.webjars:sockjs-client:1.1.2")
+	compile('org.webjars:stomp-websocket:2.3.3')
+	compile('org.webjars:bootstrap:3.3.7')
+	compile("org.webjars:jquery:3.2.0")
+	runtime('com.h2database:h2')
+	compileOnly('org.projectlombok:lombok')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
